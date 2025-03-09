@@ -45,11 +45,7 @@ router.get("/tasks", async (req, res) => {
 // Update
 router.post("/tasks/:id", async (req, res) => {
   try {
-    console.log(req.params);
-    console.log(req.body);
-
     const task = await Task.findById(req.params.id);
-    console.log(task);
 
     if (task) {
       if (req.body.content) {
@@ -71,5 +67,19 @@ router.post("/tasks/:id", async (req, res) => {
 });
 
 // Delete
+router.delete("/tasks/:id", async (req, res) => {
+  try {
+    if (await Task.findById(req.params.id)) {
+      await Task.deleteOne({ _id: req.params.id });
+      return res.status(200).json({ message: "Task deleted" });
+    }
+    throw { status: 400, message: "this Task not exist" };
+  } catch (error) {
+    console.error;
+    res
+      .status(error.status || 500)
+      .json({ message: error.message || "Internal error server" });
+  }
+});
 
 module.exports = router;
