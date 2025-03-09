@@ -36,10 +36,12 @@ PORT=3000
 
 ## 🔧 API Endpoints
 
-| Méthode | URL      | Description                | Paramètres                               | Exemple de réponse                                                                                                     |
-| ------- | -------- | -------------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `GET`   | `/tasks` | Récupère toutes les tâches | Aucun                                    | `[{"id":1,"content":"nouvelle tâche", "status" : "En cours" },{"id":2,"content":"nouvelle tâche 2, "status": "Fini"}]` |
-| `POST`  | `/tasks` | Crée une nouvelle tâche    | `{ "content": "nouvelle tâche" }` (JSON) | `{ "message": "Task created"}`                                                                                         |
+| Méthode  | URL          | Description                | Paramètres                                                                | Exemple de réponse                                                                                                     |
+| -------- | ------------ | -------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `GET`    | `/tasks`     | Récupère toutes les tâches | Aucun                                                                     | `[{"id":1,"content":"nouvelle tâche", "status" : "En cours" },{"id":2,"content":"nouvelle tâche 2, "status": "Fini"}]` |
+| `POST`   | `/tasks`     | Crée une nouvelle tâche    | `{ "content": "nouvelle tâche" }` (JSON)                                  | `{ "message": "Task created"}`                                                                                         |
+| `PUT`    | `/tasks/:id` | Modifie une tâche existant | `{ "content": "Mise à jour du contenu", status : "En cours/Fini"}` (JSON) | `{ "message": "Task modified" }`                                                                                       |
+| `DELETE` | `/tasks/:id` | Supprime une tâche         | Aucun                                                                     | `{ "message": "Task deleted" }`                                                                                        |
 
 ---
 
