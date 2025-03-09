@@ -82,4 +82,36 @@ router.delete("/tasks/:id", async (req, res) => {
   }
 });
 
+router.delete("/tasks-done", async (req, res) => {
+  try {
+    const response = await Task.find({ status: "Fini" });
+    if (response.length !== 0) {
+      await Task.deleteMany({ status: "Fini" });
+      return res.status(200).json({ message: "Tasks done deleted" });
+    }
+    throw { status: 400, message: "There are no completed tasks" };
+  } catch (error) {
+    console.error;
+    res
+      .status(error.status || 500)
+      .json({ message: error.message || "Internal error server" });
+  }
+});
+
+router.delete("/delete-all", async (req, res) => {
+  try {
+    const response = await Task.find();
+    if (response.length !== 0) {
+      await Task.deleteMany();
+      return res.status(200).json({ message: "All Tasks deleted" });
+    }
+    throw { status: 400, message: "There are no tasks to delete" };
+  } catch (error) {
+    console.error;
+    res
+      .status(error.status || 500)
+      .json({ message: error.message || "Internal error server" });
+  }
+});
+
 module.exports = router;
