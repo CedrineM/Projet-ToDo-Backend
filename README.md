@@ -36,12 +36,14 @@ PORT=3000
 
 ## 🔧 API Endpoints
 
-| Méthode  | URL          | Description                | Paramètres                                                                | Exemple de réponse                                                                                                     |
-| -------- | ------------ | -------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `GET`    | `/tasks`     | Récupère toutes les tâches | Aucun                                                                     | `[{"id":1,"content":"nouvelle tâche", "status" : "En cours" },{"id":2,"content":"nouvelle tâche 2, "status": "Fini"}]` |
-| `POST`   | `/tasks`     | Crée une nouvelle tâche    | `{ "content": "nouvelle tâche" }` (JSON)                                  | `{ "message": "Task created"}`                                                                                         |
-| `PUT`    | `/tasks/:id` | Modifie une tâche existant | `{ "content": "Mise à jour du contenu", status : "En cours/Fini"}` (JSON) | `{ "message": "Task modified" }`                                                                                       |
-| `DELETE` | `/tasks/:id` | Supprime une tâche         | Aucun                                                                     | `{ "message": "Task deleted" }`                                                                                        |
+| Méthode  | URL           | Description                  | Paramètres                                                                | Exemple de réponse                                                                                                     |
+| -------- | ------------- | ---------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `GET`    | `/tasks`      | Récupère toutes les tâches   | Aucun                                                                     | `[{"id":1,"content":"nouvelle tâche", "status" : "En cours" },{"id":2,"content":"nouvelle tâche 2, "status": "Fini"}]` |
+| `POST`   | `/tasks`      | Crée une nouvelle tâche      | `{ "content": "nouvelle tâche" }` (JSON)                                  | `{ "message": "Task created"}`                                                                                         |
+| `PUT`    | `/tasks/:id`  | Modifie une tâche existant   | `{ "content": "Mise à jour du contenu", status : "En cours/Fini"}` (JSON) | `{ "message": "Task modified" }`                                                                                       |
+| `DELETE` | `/tasks/:id`  | Supprime une tâche           | Aucun                                                                     | `{ "message": "Task deleted" }`                                                                                        |
+| `DELETE` | `/tasks-done` | Supprime les tâches terminer | Aucun                                                                     | `{ "message": "Tasks done deleted" }`                                                                                  |
+| `DELETE` | `/delete-all` | Supprime toutes les tâches   | Aucun                                                                     | `{ "message": "All Tasks deleted" }`                                                                                   |
 
 ---
 
@@ -60,11 +62,6 @@ PORT=3000
 ## 🚧 Améliorations possibles
 
 Liste des améliorations futures:
-
-- Créer les routes API :
-
-  - PUT /tasks/:id → Modifier une tâche
-  - DELETE /tasks/:id → Supprimer une tâche
 
 Bonus (si temps dispo) :
 
